@@ -1,0 +1,30 @@
+// compiled in https://www.programiz.com/c-programming/online-compiler/
+// can search in a both sorted and unsorted array
+#include <stdio.h>
+#include<stdlib.h>
+void linear(int arr[],int len,int value){
+    
+    int i=0,flag=0;
+    while(i<=len-1){
+        if(value==arr[i])
+        {
+            flag=1;
+            break;
+        }
+        else{
+            i++;
+            continue;
+        }
+    }
+    if(flag==1)
+        printf("found");
+    else 
+        printf("Not found");;
+}
+int main() {
+    int arr[]={1,57,67,100,51,34,11};
+    int len= sizeof arr / sizeof arr[0];
+    int val=36; // value that to be searched
+    linear(arr,len,val);
+       return 0;
+}
