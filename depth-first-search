@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int adjMatrix[10][10]={0}, visitmatrix[5]={0}; //initialize adjmatrix and visited matrix with value zero
+
+void depthFirstSearch(int k) {
+    
+  visitmatrix[k]=1;
+  int i, n= 4;
+  printf("%d\t",k);
+  for(i=0;i<n;i++){
+      if(visitmatrix[i]==0 && adjMatrix[k][i]==1)
+            depthFirstSearch(i);
+  }
+          
+}
+
+int main() {
+   int i, j,n,k;
+    printf("Total no of vertices\n");
+    scanf("%d",&n);
+    printf("now enter adjacency matrix values\n");
+   for(i = 0; i < n; i++) 
+   {   
+      for(j = 0; j < n; j++) 
+        { 
+            scanf("%d",&adjMatrix[i][j]);
+            
+        }
+   }
+   for(i = 0; i < n; i++) 
+   {   
+      for(j = 0; j < n; j++) 
+        { 
+            printf("%d\t",adjMatrix[i][j]);
+            
+        }
+        printf("\n");
+   }
+   
+   printf("Depth First Search algo initial node\n: ");
+   scanf("%d",&k);
+   depthFirstSearch(k); //send intial node 
+
+   return 0;   
+}
